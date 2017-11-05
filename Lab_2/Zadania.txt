@@ -1,0 +1,401 @@
+Server WWW:
+1. Połączyć ze wszystkimi hostami wirtualnymi:
+Do polaczenia używaliśmy programy Putty, łączyliśmy się po kolei ze stronami www.student.pl i www.wykladowca.pl na portach 80 i 8081.
+2. Pobrać stronę index.html:
+GET /index.html HTTP/1.1
+Host: www.student.pl
+HTTP/1.1 200 OK
+Date: Thu, 08 Nov 2012 12:35:48 GMT
+Server: Apache/2.2.8 (Win32) mod_ssl/2.2.8 OpenSSL/0.9.8g
+Last-Modified: Mon, 17 Oct 2011 07:14:46 GMT
+ETag: "10000000000d4-2e-4af795c94c580"
+Accept-Ranges: bytes
+Content-Length: 46
+Content-Type: text/html
+Hej! Znajdujesz się na stronie www.student.pl
+3. Pobrać stronę, która nie istnieje na serwerze i odczytać kod błędu:
+GET /a1.html HTTP/1.1
+Host: www.student.pl
+HTTP/1.1 404 Not Found
+Date: Thu, 08 Nov 2012 12:38:27 GMT
+Server: Apache/2.2.8 (Win32) mod_ssl/2.2.8 OpenSSL/0.9.8g
+Last-Modified: Tue, 22 Nov 2011 09:08:00 GMT
+ETag: "10000000000d2-67-4b24f23d27c00"
+Accept-Ranges: bytes
+Content-Length: 103
+Content-Type: text/html
+Hej! Znajdujesz się na stronie www.student.pl <br><br>
+<B>Niestety nastšpił błšd <h1>404</h1></b>
+4. Pobrać stronę zabezpieczoną na hasło (wykladowca:wykladowca):
+GET /index.html HTTP/1.1
+Host: www.wykladowca.pl
+AUTHORIZATION: Basic d3lrbGFkb3djYTp3eWtsYWRvd2Nh
+HTTP/1.1 200 OK
+Date: Thu, 08 Nov 2012 12:40:34 GMT
+Server: Apache/2.2.8 (Win32) mod_ssl/2.2.8 OpenSSL/0.9.8g
+Last-Modified: Tue, 08 Nov 2011 09:39:02 GMT
+ETag: "10000000000e5-35-4b135f1071980"
+Accept-Ranges: bytes
+Content-Length: 53
+Content-Type: text/html
+Hej! Znajdujesz się na stronie www.wykladowca.pl:8080
+5. Pobrać tylko nagłówek odpowiedzi z serwera:
+HEAD /index.html HTTP/1.1
+Host: www.student.pl
+HTTP/1.1 200 OK
+Date: Thu, 08 Nov 2012 12:41:54 GMT
+Server: Apache/2.2.8 (Win32) mod_ssl/2.2.8 OpenSSL/0.9.8g
+Last-Modified: Mon, 17 Oct 2011 07:14:46 GMT
+ETag: "10000000000d4-2e-4af795c94c580"
+Accept-Ranges: bytes
+Content-Length: 46
+Content-Type: text/html
+6. Sprawdzenie ważności strony:
+GET /index.html HTTP/1.1
+Host: www.student.pl
+If-Modyfied-Since: Mo,21 Jan 2008 08:30:00 GMT
+HTTP/1.1 200 OK
+Date: Thu, 08 Nov 2012 12:42:41 GMT
+Server: Apache/2.2.8 (Win32) mod_ssl/2.2.8 OpenSSL/0.9.8g
+Last-Modified: Mon, 17 Oct 2011 07:14:46 GMT
+ETag: "10000000000d4-2e-4af795c94c580"
+Accept-Ranges: bytes
+Content-Length: 46
+Content-Type: text/html
+Hej! Znajdujesz się na stronie www.student.pl
+7. Pole Content-Type nagłówka http:
+GET /a1.gif HTTP/1.1
+Host: www.student.pl
+Content-Type: image/gif
+HTTP/1.1 200 OK
+Date: Thu, 08 Nov 2012 12:51:19 GMT
+Server: Apache/2.2.8 (Win32) mod_ssl/2.2.8 OpenSSL/0.9.8g
+Last-Modified: Fri, 26 Apr 2002 08:21:14 GMT
+ETag: "2000000000298-1524-39f82d983f280"
+Accept-Ranges: bytes
+Content-Length: 5412
+Content-Type: image/gif
+GIF89a÷ccc˙11111c1cccccc11cccccccccksĽĽ{ĽĽ{ľľľľc1Î˝˝ÎÎĽĆĆľÎÎ˝ÖÖĆĆĆĆÖÖĆŢŢÎ1ÎÎÎÎÎÎŢŢÖççŢďďçďďď÷÷÷÷÷÷˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙ţH° *\Č°ĄĂ#JHą˘Ĺ3jÜČąŁÇ CI˛¤É(SŞ\É˛ĽË0cĘISĽ5sęÜiň&7y
+JT˘ĎH]ĘtŠ¤PhJľjMD*`ŞŐpÁÍˇh×Ęp\KNź¸˛U'ěâ
+CKV`š4SĚÇĺ,ÂóŔ
+0`F|´éŰB5`:ëÎ>Ç}xď^Ű¸çÔĄšóć
+ĂřqĺŘŘÎ]zAŘÔţ×ÎNžŚn˝ÔŤ[G^ž}Ë
+đ3ĚčrzńěÝëG ž
+ř3'fŕĹś^kű%Čü'kťíe`m ÔŕÁF
+đV á$mŘ Ě=ç\t(îÔh#¨ĽČ]w1ćäA D#9~ľŁ=zxĄePuTTYEŁGéB9@ViĐfPÂ' ŃöŐYfŮofÉ$S.ů"ńUYhU2
+¤k#ę[čąÜî8WgőZkă:[Žš-Ü˝vßzT}eęÄ\|b*şčzÂPĂl×5Uc jşévţEE?ÚŠ_J[Ş~Ň)Žś ˇÖ$ëŹČÚjZ7éP_F@c]śš$
+´iş| ëR˘ţh¨\cdŻgáÍúŹ$ 8Vî°ŮŠĄA"R7`lÎ r
+¨î´ZťdŔk
+Rg 3łö^
+5Đ02É~FpîÉëFÜnË.{TĚHÓÁ˝K
+Hw03u$<_ÎOĚŔąr7qÖ3Îxąť]ŇaČţ"ßűtÚjłMÓŔôüĺnˇËrÝv-łŘIďĹˇČó0ŕţBz"c^|BĂ
+˝$×_äŢ"@ôä}[NŔô;ZC0lę)>Îşń°p/@Ô$ßkHún n×č đđÄkx|ëxONň0ď|ŮkĎÄ]ďđwž]ö˝gĎćdpá?´?âóL¸
+śńoç
+<çMzÓŤÁč5ŘI?Q
+Đéâ+)ŠÝ ě'AJQT$ŔHÖĎ<šd%iŠĚ=.s'
+Nt¤ůŁćyq4ä!eRCEv&ťÉŕöúLrqü%-#Mé¸¨Äf6ľÉFn&R>ţ¤ü(ž´s WH@Ń8ĎQ2¨ŮçőŞ§=
+Ž/.XA@Ă˛#ď0
+tŢA]"ł#zsYÁV°EÄđÍN&ŞH¤ýiFTđRÚÔ".
+éMw
+Ş§@u
+&đÓ 5!9eéŕĚ;#Tt:<ĄŠN=hB/R2ŞkD ËX!bľJNKŻ>ÓŹCĄ\IV´śľŹë
+]_éĚ0Î'>eŤ$iŐKŢ5~}ëXKX§Ţqd}Ś2s2Ô˘îDćLgW]éLĹNV"ľŞbÓšĚžîąX%IRË9ŘŃó~đQ+2á
+Ë¤˛2Éđ/Ňá$xÁ,ńILá&+°WĂřˇä@PLcŘŘ%ZuÉ
+*`÷ŘÇ-˛sźă#säÇ+špJÜd'?9É+ąJ\d+{Ę(9ń-Pe/wĚ&Ńrţtuld3cÍŞĹqI¸Üf7żËióH¨\g;ßŮĂs^rIRŔf?Î rHR0ôŮĐ5ĆłHÔźč |@Ŕ>ł¤-čPuTTYPuTTYPuTTYJ_:Ó&A4G(íÔĄŢtGÍScŐőLőźWĂ:%˛žKméWß$šŤ1bë_Ť$Ř!5ą{ml ;"ťÖ
+ÝlgŤ§]Ö¨]mk:#ž~
+úŘOţś÷ÓŞTą!ąöđ{ˇ%n)ŮvJ@&_SóOţGÎđĎ8ŔőînúÚ/Ůö{Ü(ý˛ÖpD,-mŕ?§ć>Ůú70đ;şă?ÉęgÔzşýřŻÁŔ$űš'7ťWů'á]ÂzŰ!` ÎťŔ\fEśˇľ nçz}ćN÷ş[ âŇ*Ö˝8@
+řŘX ¨~ď7$ęŽq8ű,h7\!~Č+xďr!<h>h@¸Ex
+_1
+4¸0?Č
+T1
+Czág
+TxVh˝Z¸
+%Ń `=5Ré¸nć
+*Č" hj¸lŘnhW´őč$Zo¨Ě%sh}nČJöuŚUGýCNč^L%WuřGúő^Q>'Ý¸óľá^(DŮzřU×) ľÇsNń¨]?^{YH×ŐąaÇö¨řŔýřIiyzÉaőéŠ1onXň6mČHćŰ(#i&šŠm šţ(\
+(ů/ +3Ii'Ů#A
+HEšWv,¨KIGéIéaFăYI
+\ŮLkHIwa)Růeeůsg%!2×nůk)pr9tŠ&wx×Ç}éś)
+G
+ľiAĆľ)¨IĂIA5ţđÓńĐé1)XŇbrÍ)ĎáŢiŁóuőiâ˝s ŤćéĆšę źá"jÝ)ÖÓ
+J
+şiďôNÚ&8s$'& !bĄÜ)ňŮĄÁ÷Ů`ŚWPWs&ą8"éŇ$+Ę=.q 7Ł4ş 2eĹ1go5đ J˘MJa0ő¤5ŕŃ˘őáqŞ%X˘ę)& s(ńqĄJ
+ŚaJvç!%ôPuTTYPuTTYPuTTYPuTTYPuTTYPuTTYůo>:ĽĆYÖ2jc¤ńštEQŁ
+ú˘]§Ę¤;áâwŚńđI%8c|ă4=¸
+PsÔŮ&_q39ł3%ăúĘ`ę?57ĽGŇŚüiM6 Š*OÚŞ2Ź5đpT¨UÁ5QÓ>ďÉĽ!ŇĎ8
+Ź MđAr˛z˘Č*2ĐVÇŹŞPâĘŤÂŞż
+PŃqţ¨ćy˘BÚ
+´RË{lZą¨şTáŤę?ÔĘŽąUa°.°Đł°QĽ KdęYŇz/;í$a"ëţxlóŞZzKúúułz.3Ť¨ávZVťGŇ/ąędT´
+áąČ fzęZ¨Ë[ű°ĄĽëzśĆúŚ*Áśĺ9Ź3ţÉqëTđÉˇűłEaQzŰąÔůŁ".Ť{2|á ŹÓ!3Iő>ŐĘˇnű¸Q¤úśĆŠś-)ň04ý"3ËŻů=:šTšťůˇŰŁ&ęˇk*¨2ĺťU
+ťVqĹ
+´Ä[ź(ţëť@źÉB.ÍkťSšj˛¨Ť; U
+Ťg4Đť4ztý˝Â[JżęTk&Ť)§0ńžŢK´lęźi;ž^"uK0ÍŃŔż
+˝Ŕ[ż%!ŔúR
+žHşŃ
+ŞČ
+ń UňS\hĚ~Ë Z
+lVŠłĚ"ÔŻúÄQLÁáĘkAN
+˘čČślTŃÝŁZlA
+vöÓô´QÄĚÍâ[VŃföÓ@Ô×K¸2Ă\ľF1tP;,PÔ[-ePŤÁ!Ń˝ĹŘ^˘ŹŘ
+LňQőDŔzÉ2ĂÁçĎŻÜĐťlÉUţÎuYVąŃÚ´Qľ;ż\Ď
+ĘŤhIH˘lĚĄ<ĘĘ¸^-ńËÄŠĎŘČžěKÁŰžaĎşýť,Îˇ\ĺhÍűě
+Ü)y8 °fŮÍWúĚE]U
+jř<W
+í×@ ,ż=ŮśuĎÄM[ţl+ËĎÜÖŃ}ÝŘ
+ÎEUxŮz\.ÁĐşLĐ¤|gĚß<\śÍÎ=Iö
+Serwer pocztowy:
+SMTP – port 25; POP3 – port 110
+1. Rozesłać listu do wszystkich uczestników zajęć:
+220 SMTP on InetServer (3.2.3) ready.
+helo 10.0.0.4
+250 HELO
+MAIL FROM: <sk2@10.0.0.4>
+250 OK
+RCPT TO: <sk1@10.0.0.4>
+250 OK
+RCPT TO: <sk3@10.0.0.4>
+250 OK
+RCPT TO: <sk4@10.0.0.4>
+250 OK
+RCPT TO: <sk5@10.0.0.4>
+250 OK
+RCPT TO: <sk6@10.0.0.4>
+250 OK
+RCPT TO: <sk7@10.0.0.4>
+250 OK
+RCPT TO: <sk8@10.0.0.4>
+250 OK
+data
+354 Enter your data, end with <crlf>.<crlf>
+czesc jestem sk2
+.
+250 OK
+quit
+221 Closing connection
+2. Wysłać list z polami nagłówka:
+220 SMTP on InetServer (3.2.3) ready.
+helo 10.0.0.4
+250 HELO
+mail from: <sk2@10.0.0.4>
+250 OK
+rcpt to: <sk3@10.0.0.4>
+250 OK
+data
+354 Enter your data, end with <crlf>.<crlf>
+subject: przykladowy
+from: paulina and michal
+reszta wiadomosci
+.
+250 OK
+quit
+221 Closing connection
+3. Wysłać list do nieistniejącego użytkownika:
+220 SMTP on InetServer (3.2.3) ready.
+helo 10.0.0.4
+250 HELO
+mail from: <sk2@10.0.0.4>
+250 OK
+rcpt to: <nobody@10.0.0.4>
+250 OK
+data
+354 Enter your data, end with <crlf>.<crlf>
+wiadomosc
+.
+250 OK
+quit
+221 Closing connection
+4. Wysłać list od nieistniejącego użytkownika:
+220 SMTP on InetServer (3.2.3) ready.
+helo 10.0.0.4
+250 HELO
+mail from: <nobody@10.0.0.4>
+250 OK
+rcpt to: <sk2@10.0.0.4>
+250 OK
+data
+354 Enter your data, end with <crlf>.<crlf>
+wiadomosc od niema
+.
+250 OK
+quit
+221 Closing connection
+W zadaniu 3 i 4 nie wyrzuca błędów gdy użytkownik jest niepoprawny ponieważ to Server sprawdza czy użytkownik istnieje i podejmuje decyzje o wysłaniu listu.
+5. Sprawdzić zawartość swojej skrzynki odbiorczej:
++OK POP3 on InetServer (3.2.3) ready.
+user sk2
++OK user accepted
+pass sk2
++OK welcome
+list
++OK 5 189
+1 23
+2 18
+3 77
+4 46
+5 25
+.
+quit
++OK closing connection
+6. Odczytać nagłówki listów:
++OK POP3 on InetServer (3.2.3) ready.
+user sk2
++OK user accepted
+pass sk2
++OK welcome
+top 1 2
++OK showing 2 lines
+Witam wszystkich
+.
+.
+quit
++OK closing connection
+7. Spróbować przeczytać nieistniejący list:
++OK POP3 on InetServer (3.2.3) ready.
+user sk2
++OK user accepted
+pass sk2
++OK welcome
+list
++OK 6 217
+1 23
+2 18
+3 77
+4 46
+5 25
+6 28
+.
+retr 8
+-ERR no data found
+quit
++OK closing connection
+8. Usunąć listy:
++OK POP3 on InetServer (3.2.3) ready.
+user sk2
++OK user accepted
+pass sk2
++OK welcome
+list
++OK 6 217
+1 23
+2 18
+3 77
+4 46
+5 25
+6 28
+.
+dele 1
++OK Message deleted
+dele 2
++OK Message deleted
+dele 3
++OK Message deleted
+dele 4
++OK Message deleted
+dele 5
++OK Message deleted
+dele 6
++OK Message deleted
+quit
++OK closing connection
+Połączyć się protokołem FTP z serwerem FTP:
+Wszystkie zadania zostały wykonane podczas jednego połączenia:
+1. Przetestować działanie komend protokołu ftp, przesłać plik na serwer, pobrać plik z serwera, ustawić odpowiedni tryb przesyłania danych:
+Microsoft Windows XP [Wersja 5.1.2600]
+(C) Copyright 1985-2001 Microsoft Corp.
+C:\Documents and Settings\student> ftp
+ftp> open 10.0.0.4
+Połączony z 10.0.0.4.
+220-FileZilla Server version 0.9.24 beta
+220-written by Tim Kosse (Tim.Kosse@gmx.de)
+220 Please visit http://sourceforge.net/projects/filezilla/
+Użytkownik (10.0.0.4:(none)): sk2
+331 Password required for sk2
+Hasło:
+230 Logged on
+ftp> help
+Polecenia mogą zostać skrócone. Polecenia:
+! delete literal prompt send
+? debug ls put status
+append dir mdelete pwd trace
+ascii disconnect mdir quit type
+bell get mget quote user
+binary glob mkdir recv verbose
+bye hash mls remotehelp
+cd help mput rename
+close lcd open rmdir
+ftp> bell
+Tryb sygnału dźwiękowego Wł. .
+ftp> ls
+200 Port command successful
+150 Opening data channel for directory list.
+Dokument1.pdf
+help
+nowy_1ED23B
+plik1.txt
+plik2.txt
+plik3.txt
+226 Transfer OK
+ftp: 64d bajtów odebranych w 0,00Sekund 67000,00Kbajtów/sek.
+ftp> binary
+200 Type set to I
+ftp> send
+Plik lokalny C:\311B.txt
+Plik zdalny 311B.txt
+200 Port command successful
+150 Opening data channel for file transfer.
+226 Transfer OK
+ftp: 64d bajtów wysłanych w 0,00Sekund 13000,00Kbajtów/sek.
+ftp> recv
+Plik zdalny 311B.txt
+Plik lokalny C:\return.txt
+200 Port command successful
+150 Opening data channel for file transfer.
+226 Transfer OK
+ftp: 64d bajtów odebranych w 0,00Sekund 13000,00Kbajtów/sek.
+ftp> close
+221 Goodbye
+Połączyć się telnetem z serwerem ftp:
+1. Pobrać listę plików:
+Aby pobrać listę plików należało zestawić 2 połączenia, jedno na porcie 21, a drugie na wyliczonym porcie: port = 265*14+98
+220-FileZilla Server version 0.9.24 beta
+220-written by Tim Kosse (Tim.Kosse@gmx.de)
+220 Please visit http://sourceforge.net/projects/filezilla/
+user sk2
+331 Password required for sk2
+pass sk2
+230 Logged on
+pasv
+227 Entering Passive Mode (10,0,0,4,14,98)
+list
+150 Connection accepted
+226 Transfer OK
+quit
+221 Goodbye
+Polaczenie danych:
+-rw-r--r-- 1 ftp ftp 13 Nov 08 14:16 311B.txt
+-rw-r--r-- 1 ftp ftp 294142 May 07 2012 Dokument1.pdf
+drwxr-xr-x 1 ftp ftp 0 Oct 25 11:16 help
+drwxr-xr-x 1 ftp ftp 0 Oct 25 10:57 nowy_1ED23B
+-rw-r--r-- 1 ftp ftp 0 Oct 25 10:55 plik1.txt
+-rw-r--r-- 1 ftp ftp 0 Oct 25 11:37 plik2.txt
+-rw-r--r-- 1 ftp ftp 5 Oct 25 11:43 plik3.txt
+W punkcie 2 zostały wykonane zadania 2 i 3.
+2. Utworzyć katalog TMP oraz pobrać plik:
+Aby pobrać plik należało zestawić 2 połączenia, jedno na porcie 21, a drugie na wyliczonym porcie: port = 265*14+112
+220-FileZilla Server version 0.9.24 beta
+220-written by Tim Kosse (Tim.Kosse@gmx.de)
+220 Please visit http://sourceforge.net/projects/filezilla/
+user sk2
+331 Password required for sk2
+pass sk2
+230 Logged on
+mkd TMP
+257 Directory created successfully
+pasv
+227 Entering Passive Mode (10,0,0,4,14,112)
+retr 311B.txt
+150 Connection accepted
+226 Transfer OK
+quit
+221 Goodbye
+Polaczenie danych:
+do przeslania
