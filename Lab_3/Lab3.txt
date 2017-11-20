@@ -1,0 +1,1144 @@
+Wykonanie poszczególnych zadań:
+CSS:
+•	Różne metody łączenia stylu z dokumentem HTML (wewnątrz dokumentu, zewnętrzny plik CSS, atrybut style) wykorzystując własności czcionek: krój, wielkość, kolor, styl, wariant.
+- plik style.css, oraz w plikach np. index.html, strona_2.html np. 
+<link rel="stylesheet" type="text/css" href="style/style.css"/>;
+<style type="text/css">
+		h1{color: gold; text-align: center; white-space: pre; }
+		h4 {text-align: center; color: green;}
+		h5 {text-align: center;}
+</style>
+<span style="color: blue; font-size: 1.25em; text-transform: uppercase;"></span>
+•	Długości w stylach CSS (względne, bezwzględne).
+-plik style.css oraz plik index.html np. 
+font-size: 1.25em, font-size: 20px
+•	Selektory odwołujące się do atrybutów: atrybuty class i id, selektory typu [x], [x="y"], [x~="y"].
+-pliki style.css oraz większość zawiera id lub class np.
+<div id="tekst"></div>
+<div class="div_center"></div>
+•	Selektory kontekstowe E F, E>F, E+F.
+•	Elementy div, span.
+-prawie każdy plik np.
+<span style="color: blue; font-size: 1.25em; text-transform: uppercase;"></span>
+<div id="tekst"></div>
+•	Ramki: padding, border, margin; rozmiary ramek (rozmiary minimalne i maksymalne), przepełnienie (własność overflow).
+-pokazane w pliku style.css np.
+#tekst {
+overflow:scroll; 
+}
+.p1 {
+	margin: 50px;
+	padding: 30px;
+	border-width: 7px;
+	border-color: green;
+	border-style:solid;
+}
+•	Właściwości tekstu: wyrównanie (w pionie i poziomie), odstępy pomiędzy liniami, słowami i znakami, trasformacja do dużych/małych liter.
+-plik style.css np.
+#tekst {
+width: 500px;
+height: 300px; 
+overflow:scroll; 
+text-align: center; 
+vertical-align: middle; 
+margin-left: auto; 
+margin-right: auto; 
+line-height:30px;
+letter-spacing: 4px;
+text-transform: lowercase;
+}
+text-transform: capitalize;
+text-transform: uppercase;
+•	Właściwości tła: kolor, rysunek (ilość, położenie, krotność).
+-plik strona_2.html, style.css oraz index.html np.
+background: url(../img/gradient.jpg) no-repeat center center fixed;
+background-color:#FFFF00;
+background: url(../img/rys.jpg) repeat;
+•	Pseudoklasy :first-child, :hover, :active. Tworzenie odnośnika do innych dokumentów zmieniającego swój wygląd po najechaniu myszką. Utwórzyć formularz, którego pola będą wyróżniane po wybraniu. 
+-plik style.css np.
+.link:hover {
+	color: green;
+	font-weight: bold;
+}
+.link:active {
+	color: red;
+	text-transform: uppercase;
+}
+#przyklad_dziecko:first-child {color:red;}
+•	Pseudoelementy :first-line, :first-letter. Teksty generowane automatycznie: :before, :after. 
+-plik style.css np.
+#tekst:first-letter {
+font-size: 50px;
+color: yellow;
+font-weight: bold;
+}
+
+#tekst:first-line {
+text-decoration: underline;
+}
+
+.p1:before {
+content: "BEFORE! "; 
+color: red;
+}
+
+.p1:after {
+content:"AFTER!";
+color: red;
+}
+
+•	Dziedziczenie: słowo kluczowe inherit (np. względna wielkość czcionki). Przykład: zagnieżdżenie elementu <small>. 
+-plik index.html np.
+font-size: inherit;
+•	Pozycjonowanie: własność position.
+-plik strona_2.html np.
+<img src="img/rys.jpg" id="img" alt="rys" title="rys" height="150" width="200" style="position:absolute; left:300px; top: 450px"/>
+•	Białe spacje
+-plik index.html np.
+h1{color: gold; text-align: center; white-space: pre; }
+•	Zdefiniować złożony układ strony (nagłówek, stopka, margines) bez stosowania tabel.
+-plik style.css; zaprezentowane na każdej stronie.
+•	Typy elementów: block, inline.
+-plik index.html np.
+<p style="display:inline"><strong>Akapit pierwszy (display: inline)</strong></p>
+<p style="display:inline"><em>Akapit drugi (display: inline)</em></p>
+<center><img src="img/rys.jpg" id="img" alt="rys" title="rys" height="100" width="200" style="display: block"/></center>
+<center><img src="img/rys.jpg" id="img" alt="rys" title="rys" height="100" width="200" style="display: block"/></center>
+
+
+PHP:
+•	Skonfigurować serwer Apacha do współpracy z PHP.
+-plik httpd.conf i php.ini konfigurowane na zajęciach.
+•	Przećwiczyć przekazywanie danych miedzy formularzami metodą POST, GET i za pomocą globals=on.
+-plik strona_2.html oraz obsługa: prosty_formularz_get.php, prosty_formularz_post.php, prosty_formularz_global.php
+•	Obsłużyć połączenie z serwerami baz danych MySQL
+o	Wyświetlając dane z tabel
+-plik baza.php
+o	Wstawiając dane do tabel
+-pliki add_form.php (zawiera formularz) oraz add.php (obsługa)
+o	Poprawiając dane w tabeli
+-pliki edit_data.php (wybór rekordu do poprawy), edit_wpis.php (poprawa danego rekordu), edit.php (obsługa)
+o	Usuwając dane z tabeli
+-pliki delete_data.php (wybór rekordu do usunięcia), delete.php (obsługa)
+o	Sortując dane w tabeli
+-pliki baza.php (wybor sortowania), sort.php (obsługa)
+
+
+
+
+
+Kody źródłowe wszystkich stron:
+	style.css (arkusz styli)
+body {	
+	text-align:center;
+	background-color: grey;
+	background: url(../img/gradient.jpg) no-repeat center center fixed;
+	
+}
+#frame {
+	width:800px;
+	margin-right:auto;
+	margin-left:auto;
+	text-align:left;
+}
+#contentheader {
+	height: 175px;
+	background-color:#009900;
+	
+}
+#lefthead {background-color:black; width: 50px; height: 175px; float:left;}
+#topthead {
+background: url(../img/rys.jpg) repeat;
+background-size:60px 70px; 
+width: 700px; 
+height: 175px;
+float: left;}
+#righthead {background-color:black; width: 50px; height: 175px; float: right;}
+/*
+#contentleft {
+	width:175px;
+	height: 100px;
+	float:left;
+	background-color:#FFFF00;
+}*/
+#contentcenter {
+	width:800px;
+	/*height:1000px;*/
+	float:left;
+	/*background-color:#FF0000;*/
+}
+#contentfoot {
+	height: 50px;
+	background-color:#FF4567;
+	clear:both;
+}	
+
+.p1 {
+	font-family: "Verdana";
+	font-size: 20px;
+	margin: 50px;
+	padding: 30px;
+	border-width: 7px;
+	border-color: green;
+	border-style:solid;
+	text-transform: capitalize;
+}
+
+.p1:before {
+content: "BEFORE! "; 
+color: red;
+}
+
+.p1:after {
+content:"AFTER!";
+color: red;
+}
+
+#tekst {
+width: 500px;
+height: 300px; 
+overflow:scroll; 
+text-align: center; 
+vertical-align: middle; 
+margin-left: auto; 
+margin-right: auto; 
+line-height:30px;
+letter-spacing: 4px;
+text-transform: lowercase;
+}
+#tekst:first-letter {
+font-size: 50px;
+color: yellow;
+font-weight: bold;
+}
+
+#tekst:first-line {
+text-decoration: underline;
+}
+
+#img {
+margin-top: 30px;
+}
+
+.link:hover {
+	color: green;
+	font-weight: bold;
+}
+.link:active {
+	color: red;
+	text-transform: uppercase;
+}
+#przyklad_dziecko:first-child {color:red;}
+
+.div_center{
+text-align: center;
+}
+
+/*strona_2.html*/
+#form_get {
+margin-top: 200px;
+float: left;
+}
+
+#form_post {
+margin-top: 200px;
+float: right;
+}
+
+#form_global {
+clear: both;
+margin-left: auto;
+margin-right: auto;
+}
+
+#sortowanie:first-letter {
+text-transform: uppercase;
+}
+
+	add.php (obsługa dodawania)
+<?php
+	include "config.php";
+	$link=mysql_connect("$host", "$user", "$haslo") or die ("Connect error!");
+	mysql_select_db("$baza") or die ("Error database");
+	
+	$imie = htmlspecialchars($_POST['imie']);
+	$nazwisko = htmlspecialchars($_POST['nazwisko']);
+	$grupa = htmlspecialchars($_POST['grupa']);
+	$ocena = htmlspecialchars($_POST['ocena']);
+	$zapytanie = "INSERT INTO test.kwiatek VALUES (NULL,'$imie','$nazwisko','$grupa', '$ocena');";
+	
+	mysql_query($zapytanie);
+    
+    mysql_close($link);
+	
+	header('Location:baza.php');
+?>
+
+	add_form.php (formularz dodawania)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="Laboratorium 3"/>
+		<meta name="description" content="Laboratorium 3"/>
+		<meta name="author" content="Michał & Paulina"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter" style="height: 350px">
+			<div>
+				<center><a href="baza.php" title="Baza">Powrót</a></center>
+			</div>
+			<div>
+				<center><form action="add.php" method="POST" style="margin-top: 60px;">
+				Nazwa: <input type="text" name="imie" /> <br />
+				Nazwa lacinska: <input type="text" name="nazwisko" /> <br />
+				Rodzaj: <br />
+					<input type="radio" name="grupa" value="Kwiat" /> Kwiat <br />
+					<input type="radio" name="grupa" value="Krzew" /> Krzew <br />
+					<input type="radio" name="grupa" value="Bylina" /> Bylina <br />
+					<input type="radio" name="grupa" value="Kaktus" /> Kaktus <br />
+				Cena:<input type="text" name="ocena" /><br />
+					<input type="submit" value="Accept" />
+				</form></center>
+			</div>
+		</div>
+		
+		<div id="contentfoot">
+			<div><h5>Paulina & Michał</h5></div>
+		</div>	
+	</div>
+</body>
+</html>
+
+	baza.php (wyświetlenie bazy oraz wybór sortowania)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="Laboratorium 3"/>
+		<meta name="description" content="Laboratorium 3"/>
+		<meta name="author" content="Michał & Paulina"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter">
+			<div>
+				<center><a href="index.html" title="Index">Strona główna</a></center>
+				<center><a href="strona_2.html" title="strona_2">Powrót</a></center>
+				
+				<?php
+					include "config.php";
+					$link = mysql_connect($host, $user, $haslo) or die ("Connect error!");
+					print ("Connect OK!");
+					mysql_select_db("$baza") or die ("Error database");
+
+					echo"<center><TABLE border='1' width='10px' bgcolor='orange'>
+						<TR>
+						
+						<TH>Nazwa</TH>
+						<TH>Nazwa lacinska</TH>
+						<TH>Rodzaj</TH>
+						<TH>Cena</TH>
+						</TR>";
+					$tab_osoby = "SELECT * FROM kwiatek";
+					$zawartosc = mysql_query($tab_osoby);
+					while ($row1 = mysql_fetch_row($zawartosc)) {
+					echo" <tr>
+					
+					<td>".$row1[1]."</td>
+					<td>".$row1[2]."</td>
+					<td>".$row1[3]."</td>
+					<td>".$row1[4]."</td>
+					</tr>"; 
+					};
+					echo " </TABLE> </center>";
+					
+					
+					mysql_close($link);
+				?>
+				<center>
+				<a href="delete_data.php" title="delete">Usuń</a>
+				<a href="add_form.php" title="add">Dodaj</a>
+				<a href="edit_data.php" title="edit">Edytuj</a>
+				</center>
+				
+				<br/>
+				<center><form action="sort.php" method="post">
+					Sortuj wg:
+					<select name="sortowanie">
+						<option value="lacina">Nazwa lacinska</option>
+						<option value="rodzaj">Rodzaj</option>
+					</select>
+					
+					w sposób:
+					<select name="sort_sposob">
+						<option value="ASC">rosnacy</option>
+						<option value="DESC">malejacy</option>
+					</select>
+					<input type="submit" value="Accept"/>
+				</form></center>
+				
+			
+		</div>
+
+	</div>
+</body>
+</html>
+
+	delete.php (obsługa usuwania)
+<?php
+					include "config.php";
+					$link=mysql_connect("$host", "$user", "$haslo") or die ("Connect error!");
+					mysql_select_db("$baza")
+					or die ("Error database");
+					$id = $_GET['id'];
+					$zapytanie = "DELETE FROM kwiatek where id='$id'";
+					mysql_query($zapytanie);
+                    
+                    mysql_close($link);
+					include "baza.php";
+                    
+                    
+?>
+
+	delete_data.php (wybór rekordu do usunięcia)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="Laboratorium 3"/>
+		<meta name="description" content="Laboratorium 3"/>
+		<meta name="author" content="Michał & Paulina"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter" style="height: 300px">
+			<div>
+				<center><a href="baza.php" title="baza">Powrót</a></center>
+				
+				<?php
+					include "config.php";
+					$link=mysql_connect("$host", "$user", "$haslo") or die ("Connect error!");
+					print ("Connect OK!");
+					mysql_select_db("$baza")
+					or die ("Error database");
+
+					echo"<center><TABLE border='1' width='10px' bgcolor='orange'>
+						<TR>
+						
+						<TH>Nazwa</TH>
+						<TH>Nazwa lacinska</TH>
+						<TH>Rodzaj</TH>
+						<TH>Cena</TH>
+						</TR>";
+					$tab_osoby = 'SELECT * FROM kwiatek';
+					$zawartosc = mysql_query($tab_osoby);
+					while ($row1 = mysql_fetch_row($zawartosc)) {
+						echo '<tr>
+							
+							<td>'.$row1[1].'</td>
+							<td>'.$row1[2].'</td>
+							<td>'.$row1[3].'</td>
+							<td>'.$row1[4].'</td>
+							<td><a href="delete.php?id='.$row1[0].'">Usuń</a></td>
+							</tr>';
+					};
+					echo " </TABLE> </center>";
+					
+					
+					mysql_close($link);
+				?>
+		</div>
+		<div id="contentfoot">
+			<div><h5>Paulina & Michał</h5></div>
+		</div>	
+	</div>
+</body>
+</html>
+
+	edit.php (obsługa edycji)
+<?php
+	include "config.php";
+	$link=mysql_connect("$host", "$user", "$haslo") or die ("Connect error!");
+	mysql_select_db("$baza") or die ("Error database");
+	$id = $_POST['id'];
+	$imie = htmlspecialchars($_POST['imie']);
+	$nazwisko = htmlspecialchars($_POST['nazwisko']);
+	$grupa = htmlspecialchars($_POST['grupa']);
+	$ocena = htmlspecialchars($_POST['ocena']);
+	
+	$zapytanie = "UPDATE kwiatek set
+								id = '$id',
+								nazwa='$imie',
+								lacina='$nazwisko',
+								rodzaj='$grupa',
+								cena='$ocena'
+					WHERE id='$id'";
+	mysql_query($zapytanie);
+    
+    mysql_close($link);
+    
+	header('Location:baza.php');
+?>
+
+	edit_data.php (wybór rekordu do edycji)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="Laboratorium 3"/>
+		<meta name="description" content="Laboratorium 3"/>
+		<meta name="author" content="Michał & Paulina"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter" style="height: 300px">
+			<div>
+				<center><a href="baza.php" title="baza">Powrót</a></center>
+				
+				<?php
+					include "config.php";
+					$link=mysql_connect("$host", "$user", "$haslo") or die ("Connect error!");
+					print ("Connect OK!");
+					mysql_select_db("$baza")
+					or die ("Error database");
+
+					echo"<center><TABLE border='1' width='10px' bgcolor='orange'>
+						<TR>
+						
+						<TH>Nazwa</TH>
+						<TH>Nazwa lacinska</TH>
+						<TH>Rodzaj</TH>
+						<TH>Cena</TH>
+						</TR>";
+					$tab_osoby = 'SELECT * FROM kwiatek';
+					$zawartosc = mysql_query($tab_osoby);
+					while ($row1 = mysql_fetch_row($zawartosc)) {
+						echo '<tr>
+							
+							<td>'.$row1[1].'</td>
+							<td>'.$row1[2].'</td>
+							<td>'.$row1[3].'</td>
+							<td>'.$row1[4].'</td>
+							<td><a href="edit_wpis.php?id='.$row1[0].'">Edytuj</a></td>
+							</tr>';
+					};
+					echo " </TABLE> </center>";
+					
+					
+					mysql_close($link);
+				?>
+		</div>
+		<div id="contentfoot">
+			<div><h5>Paulina & Michał</h5></div>
+		</div>	
+	</div>
+</body>
+</html>
+
+	edit_wpis.php (edycja wybranego rekordu)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="Laboratorium 3"/>
+		<meta name="description" content="Laboratorium 3"/>
+		<meta name="author" content="Michał & Paulina"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter" style="height: 350px">
+			<div>
+				<center><a href="edit_data.php" title="Edit">Powrót</a></center>
+			</div>
+			<div>
+			<?php
+					include "config.php";
+					$link=mysql_connect("$host", "$user", "$haslo") or die ("Connect error!");
+					print ("Connect OK!");
+					mysql_select_db("$baza") or die ("Error database");
+					$id = $_GET['id'];
+					$zapytanie = "SELECT * FROM kwiatek where id='$id'";
+					$zawartosc = mysql_query($zapytanie);
+					$row1 = mysql_fetch_row($zawartosc);
+					
+					echo'<center><form action="edit.php" method="POST">
+						<input type="text" name="id" value="'.$row1[0].'" size="20" maxlenght="20" hidden /> <br />
+						Imię: <input type="text" name="imie" value="'.$row1[1].'" size="20" maxlenght="20" /> <br />
+						Nazwisko: <input type="text" name="nazwisko" value="'.$row1[2].'"/> <br />
+						Grupa: <br />';
+						switch($row1[3]) {
+							case 'Kwiat':
+								echo '<input type="radio" name="grupa" value="Kwiat" checked="checked"/> Kwiat <br />
+									<input type="radio" name="grupa" value="Krzew" /> Krzew <br />
+									<input type="radio" name="grupa" value="Bylina" /> Bylina <br />
+									<input type="radio" name="grupa" value="Kaktus" /> Kaktus <br />';
+								break;
+							case "Krzew":
+								echo '<input type="radio" name="grupa" value="Kwiat" /> Kwiat <br />
+									<input type="radio" name="grupa" value="Krzew" checked="checked"/> Krzew <br />
+									<input type="radio" name="grupa" value="Bylina" /> Bylina <br />
+									<input type="radio" name="grupa" value="Kaktus" /> Kaktus <br />';
+								break;
+							case "Bylina":
+								echo '<input type="radio" name="grupa" value="Kwiat" /> Kwiat <br />
+									<input type="radio" name="grupa" value="Krzew" /> Krzew <br />
+									<input type="radio" name="grupa" value="Bylina" checked="checked"/> Bylina <br />
+									<input type="radio" name="grupa" value="Kaktus" /> Kaktus <br />';
+								break;
+							case "Kaktus":
+								echo '<input type="radio" name="grupa" value="Kwiat" /> Kwiat <br />
+									<input type="radio" name="grupa" value="Krzew" /> Krzew <br />
+									<input type="radio" name="grupa" value="Bylina" /> Bylina <br />
+									<input type="radio" name="grupa" value="Kaktus" checked="checked"/> Kaktus <br />';
+								break;
+							}
+						
+					echo'Cena:<input type="text" name="ocena" value="'.$row1[4].'" /><br />
+						<input type=submit value="Accept" />
+						</form></center>';
+                        
+                        mysql_close($link);
+			?>
+			</div>
+		</div>
+		
+		<div id="contentfoot">
+			<div><h5>Paulina & Michał</h5></div>
+		</div>	
+	</div>
+</body>
+</html>
+
+	index.html (strona startowa, na tej stronie przećwiczony jest CSS)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="szablon strony"/>
+		<meta name="description" content="Opis."/>
+		<meta name="author" content="Michał"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h1{color: gold; text-align: center; white-space: pre; }
+			h4 {text-align: center; color: green;}
+			h5 {text-align: center;}
+		</style>
+
+		</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+			
+		</div>
+
+		<div id="contentcenter">
+			<div>
+			<center>
+				<span style="color: blue; font-size: 1.25em; text-transform: uppercase;"><b>To jest pogrubienie (element wy¶wietlany w linii) w ramach SPAN</b>,a to jest zwykły tekst - również wewn±trz span.</span>
+			</center>
+			</div>
+			
+			<h1>NAGLOWEK                  H1</h1>
+			
+			<div>
+				<p class="p1"> Jaki¶ tekst ktowy ma marginesy - 50 px; oraz padding 30 px z dodatkiem border;</p>
+			</div>
+			
+			<div id="tekst">
+			Zabicie przez izraelskie siły lotnicze w ub. ¶rodę jednego z dowódców wojskowych radykalnego Hamasu rz±dz±cego Stref± Gazy, spowodowało eskalację napięcia i falę wzajemnych ataków. Palestyńczycy przeprowadzaj± ataki rakietowe na terytorium Izraela, w Tel Awiwie ogłoszono w czwartek alarm lotniczy. Izrael atakuje Strefę Gazy z morza i powietrza.
+			Bilans ofiar ¶miertelnych obecnej fazy konfliktu to 19 Palestyńczyków, w tym dzieci, i 3 Izraelczyków.
+			- Z ogromnym niepokojem przyjmujemy eskalację konfliktu w tym regionie, uznaj±c prawo każdego państwa i narodu do zwalczania Ľródeł realnego zagrożenia, jakim s± zjawiska terroryzmu i agresji z s±siedztwa - mówił Komorowski na wspólnej konferencji prasowej z prezydentem Francji.
+			Komorowski wyraził nadzieję, że "działania nie będ± eskalowane i nie stan± się Ľródłem jeszcze poważniejszych konfliktów".
+			Prezydent Polski zapewnił, że będzie bacznie obserwował tę sytuację, a także czy użyte ¶rodki s± adekwatne do istniej±cego zagrożenia". - Miejmy nadzieję, że nie przerodzi się to w fazę działania wojsk l±dowych, że będzie to operacja o ograniczonym wymiarze, także ograniczonych, negatywnych skutkach politycznych - podkre¶lił Komorowski.
+			Jak dodał, wi±że nadzieję "z oddziaływaniem całej ¶wiatowej opinii publicznej na wzmocnienie mechanizmów prowadz±cych do rozmów pokojowych i do wygaszania konfliktu, a nie jego eskalowania".
+			Hollande także wyraził zaniepokojenie sytuacj± w Strefie Gazy, zarówno pociskami wystrzeliwanymi w stronę Izraela, jak i odpowiedzi± ze strony izraelskiej, która - jak mówił - może doprowadzić do eskalacji".
+			</div>
+			
+			<div>
+				<h4> Na obrazkach przedstawiono display: block; </h4>
+				<center><img src="img/rys.jpg" id="img" alt="rys" title="rys" height="100" width="200" style="display: block"/></center>
+				<center><img src="img/rys.jpg" id="img" alt="rys" title="rys" height="100" width="200" style="display: block"/></center>
+			</div>
+			
+			<div class="div_center">
+				<p style="display:inline"><strong>Akapit pierwszy (display: inline)</strong></p>
+				<p style="display:inline"><em>Akapit drugi (display: inline)</em></p>
+			</div>
+            
+            <center>
+            <div style="font-size: 20px;">
+                <div style="font-size: inherit;">
+                    Prezentacja inherit;
+                </div>
+            </div>
+            </center>
+			
+			<div>
+				<a href="strona_2.html" title="Strona_2" class="link">Przejscie do strony 2</a>
+			</div>
+			
+		</div>
+		<div id="contentfoot">
+			<div><h5>Paulina & Michał</h5></div>
+		</div>	
+	</div>
+</body>
+</html>
+	prosty_formularz_get.php (przekazywanie za pomocą get)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="Laboratorium 3"/>
+		<meta name="description" content="Laboratorium 3"/>
+		<meta name="author" content="Michał & Paulina"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h3 {color: red;}
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter" style="height: 300px">
+			<center><a href="index.html" title="Index">Powrót do strony pierwszej.</a></center>
+			<center><a href="strona_2.html" title="Strona_2">Powrót do formularza.</a></center>
+			<h3>Metoda GET:</h3>
+			Imię: <?php echo $_GET['imie']; ?> <br />
+			Nazwisko: <?php echo $_GET['nazwisko']; ?> <br />
+			Grupa: <?php switch($_GET['grupa']) {
+				case "311A":
+					echo "311A";
+					break;
+				case "311B":
+					echo "311B";
+					break;
+				case "312A":
+					echo "312A";
+					break;
+				case "312B":
+					echo "312B";
+					break;
+			}
+			?>
+			
+
+		</div>
+
+		<div id="contentfoot">
+			<div><h5>Paulina & Michał</h5></div>
+		</div>	
+	</div>
+</body>
+</html>
+
+	prosty_formularz_global.php (przekazywanie za pomocą zmiennych globalnych)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="Laboratorium 3"/>
+		<meta name="description" content="Laboratorium 3"/>
+		<meta name="author" content="Michał & Paulina"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h3 {color: red;}
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter" style="height: 300px">
+			<center><a href="index.html" title="Index">Powrót do strony pierwszej.</a></center>
+			<center><a href="strona_2.html" title="Strona_2">Powrót do formularza.</a></center>
+			<h3>Metoda GLOBAL:</h3>
+			Imię: <?php echo $imie; ?> <br />
+			Nazwisko: <?php echo $nazwisko; ?> <br />
+			Grupa: <?php switch($grupa) {
+				case "311A":
+					echo "311A";
+					break;
+				case "311B":
+					echo "311B";
+					break;
+				case "312A":
+					echo "312A";
+					break;
+				case "312B":
+					echo "312B";
+					break;
+			}
+			?>
+			
+
+		</div>
+
+		<div id="contentfoot">
+			<div><h5>Paulina & Michał</h5></div>
+		</div>	
+	</div>
+</body>
+</html>
+
+	prosty_formularz_post.php (przekazywanie za pomocą post)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+		<meta name="language" content="PL">
+		<meta name="keywords" content="Laboratorium 3">
+		<meta name="description" content="Laboratorium 3">
+		<meta name="author" content="Michał & Paulina">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		
+		<style type="text/css">
+			h3 {color: red;}
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter" style="height: 300px">
+			<center><a href="index.html" title="Index">Powrót do strony pierwszej.</a></center>
+			<center><a href="strona_2.html" title="Strona_2">Powrót do formularza.</a></center>
+			<h3>Metoda POST (brak zmiennych w URL):</h3>
+			Imię: <?php echo $_POST['imie']; ?> <br />
+			Nazwisko: <?php echo $_POST['nazwisko']; ?> <br />
+			Grupa: <?php switch($_POST['grupa']) {
+				case "311A":
+					echo "311A";
+					break;
+				case "311B":
+					echo "311B";
+					break;
+				case "312A":
+					echo "312A";
+					break;
+				case "312B":
+					echo "312B";
+					break;
+			}
+			?>
+
+		</div>
+
+		<div id="contentfoot">
+			<div><h5>Paulina & Michał</h5></div>
+		</div>	
+	</div>
+</body>
+</html>
+
+	sort.php (obsługa sortowania)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="Laboratorium 3"/>
+		<meta name="description" content="Laboratorium 3"/>
+		<meta name="author" content="Michał & Paulina"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter">
+			<div>
+				<center><a href="baza.php" title="Baza">Powrót</a></center>
+
+				<?php
+					include "config.php";
+					$link=mysql_connect("$host", "$user", "$haslo") or die ("Connect error!");
+					mysql_select_db("$baza") or die ("Error database");
+					
+					$sortowanie = $_POST['sortowanie'];
+					$sort_sposob = $_POST['sort_sposob'];
+					
+					echo"<center><p>Ustawione sortowanie:</p> <p id='sortowanie'>$sortowanie</p></center>";
+					
+					echo"<center><TABLE border='1' width='10px' bgcolor='orange'>
+										<TR>
+                                    
+										<TH>Nazwa</TH>
+										<TH>Nazwa lacinska</TH>
+										<TH>Rodzaj</TH>
+										<TH>Cena</TH>
+										</TR>";
+									$zapytanie = "SELECT * FROM kwiatek ORDER BY $sortowanie $sort_sposob";
+									$zawartosc = mysql_query($zapytanie);
+									while ($row1 = mysql_fetch_row($zawartosc)) {
+									echo" <tr>
+                                    
+									<td>".$row1[1]."</td>
+									<td>".$row1[2]."</td>
+									<td>".$row1[3]."</td>
+									<td>".$row1[4]."</td>
+									</tr>"; 
+									};
+									echo " </TABLE> </center>";
+                                    
+                    mysql_close($link);
+
+				?>
+				<br/>
+				<center><form action="sort.php" method="post">
+					Sortuj wg:
+					<select name="sortowanie">
+						<option value="lacina">Nazwa lacinska</option>
+						<option value="rodzaj">Rodzaj</option>
+					</select>
+					
+					w sposób:
+					<select name="sort_sposob">
+						<option value="ASC">rosnacy</option>
+						<option value="DESC">malejacy</option>
+					</select>
+					<input type="submit" value="Accept"/>
+				</form></center>
+				
+				
+		</div>
+
+	</div>
+</body>
+</html>
+
+	strona_2.html (na tej stronie przećwiczony jest CSS oraz zawiera formularze do przekazywania zmiennych)
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Michał Paluch & Paulina Palczynska</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"/>
+		<meta name="language" content="PL"/>
+		<meta name="keywords" content="Laboratorium 3"/>
+		<meta name="description" content="Laboratorium 3"/>
+		<meta name="author" content="Michał & Paulina"/>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		
+		<style type="text/css">
+			h2 {text-align: center; color: green;}
+			h3 {color:red;}
+			h5 {text-align: center;}
+		</style>
+	</head>
+	
+<body>
+	<div id="frame">
+		<div id="contentheader">
+			<div id="lefthead">&nbsp;</div>
+			<div id="righthead">&nbsp;</div>
+			<div id="topthead">&nbsp;</div>
+		</div>
+
+		<div id="contentcenter" style="height: 1000px">
+			<div>
+				<center><p>Jesli baza nie istnieje kliknij!!!</p></center>
+				<center><a href="tworz.php" title="Tworzenie">Stwórz baze</a></center><br/><br/>
+				<center><a href="baza.php" title="baza">Baza danych</a></center>
+				<center><a href="index.html" title="Index">Powrót</a></center>
+				
+				<p>To jest akapit, wewnatrz którego znajduje się <b id="przyklad_dziecko">pierwsze pogrubienie (powinno być czerwone)</b> oraz <b id="przyklad_dziecko">drugie pogrubienie (nie powinno być czerwone)</b>.</p>
+			</div>
+			<div>
+				<h2>Obrazek ustawiony za pomoc± position: absolute;</h2>
+				<img src="img/rys.jpg" id="img" alt="rys" title="rys" height="150" width="200" style="position:absolute; left:300px; top: 450px"/>
+			</div>	
+			
+			<div>			
+				<form action="prosty_formularz_get.php" method="GET" id="form_get">
+					<h3> Metoda GET:</h3>
+					Imię: <input type="text" name="imie" /> <br />
+					Nazwisko: <input type="text" name="nazwisko" /> <br />
+					Grupa: <br />
+					<input type="radio" name="grupa" value="311A" /> 311A <br />
+					<input type="radio" name="grupa" value="311A" /> 311B <br />
+					<input type="radio" name="grupa" value="311A" /> 312A <br />
+					<input type="radio" name="grupa" value="311A" /> 312B <br />
+					<input type="submit" value="Accept" />
+				</form>
+				
+				<form action="prosty_formularz_post.php" method="POST" id="form_post">
+					<h3> Metoda Post:</h3>
+					Imię: <input type="text" name="imie" /> <br />
+					Nazwisko: <input type="text" name="nazwisko" /> <br />
+					Grupa: <br />
+					<input type="radio" name="grupa" value="311A" /> 311A <br />
+					<input type="radio" name="grupa" value="311A" /> 311B <br />
+					<input type="radio" name="grupa" value="311A" /> 312A <br />
+					<input type="radio" name="grupa" value="311A" /> 312B <br />
+					<input type="submit" value="Accept" />
+				</form>
+				
+				<center>
+				<form action="prosty_formularz_global.php" method="GET" id="form_global">
+					<h3> Metoda Global:</h3>
+					Imię: <input type="text" name="imie" /> <br />
+					Nazwisko: <input type="text" name="nazwisko" /> <br />
+					Grupa: <br />
+					<input type="radio" name="grupa" value="311A" /> 311A <br />
+					<input type="radio" name="grupa" value="311A" /> 311B <br />
+					<input type="radio" name="grupa" value="311A" /> 312A <br />
+					<input type="radio" name="grupa" value="311A" /> 312B <br />
+					<input type="submit" value="Accept" />
+				</form>
+				</center>
+			</div>
+		</div>
+		<div id="contentfoot">
+			<div><h5>Paulina & Michał</h5></div>
+		</div>	
+	</div>
+</body>
+</html>
+
+
+Dwa pliki dodatkowe:
+	config.php (dodatkowy plik konfigurujący dostęp do bazy danych)
+<?php
+	$user = 'root';
+	$haslo ='admin';
+	$host = 'localhost';
+	$baza = 'test';
+?>
+
+	tworz.php (dodatkowy plik tworzący bazę danych)
+<?php
+	include "config.php";
+	$link = mysql_connect($host, $user, $haslo) or die ("Connect error!");
+	mysql_select_db($baza) or die ("Error database");
+
+	$tabela="CREATE TABLE IF NOT EXISTS kwiatek
+	( id int(11) NOT NULL AUTO_INCREMENT,
+	nazwa varchar(20) NOT NULL,
+	lacina varchar(20) NOT NULL,
+	rodzaj varchar(11) NOT NULL,
+	cena varchar(10) NOT NULL,
+    PRIMARY KEY (id))" ;
+	mysql_query($tabela);
+    
+    mysql_close($link);
+	
+	header('Location:baza.php');
+?>
+
+
+

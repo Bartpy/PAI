@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<title>Bartłomiej Pyk Michał Rusinek 3ID13A</title>
+		<link href="style.css" rel="stylesheet" >
+	</head>
+	<body>
+		<div id="header">
+			<h1>Bartłomiej Pyk</h1>
+			<h1>Michał Rusinek</h1>
+			<h2>3ID13A</h2>
+			<h3>Projektowanie Aplikacji Internetowych 1 Lab 3</h3>
+		</div>
+		<div id="topmenu">
+			<ul>
+				<li><a href="#">Podstrona 1</a></li>
+				<li><a href="#">Podstrona 2</a></li>
+				<li><a href="#">Podstrona 3</a></li>
+			</ul>
+		</div>
+		<div id="leftmenu">
+			<ul>
+				<li case="upper"><a href="#">Podstrona 1</a></li>
+				<li case="lower"><a href="#">Podstrona 2</a></li>
+				<li case="upper"><a href="#">Podstrona 3</a></li>
+			</ul>
+		</div>
+		<div id="content">
+			<p atrybut="a 1">p aaaaaa</p>
+			<p atrybut="a 2">p aaaaaa</p>
+			<p atrybut="b 1">p aaaaaa</p>
+			<p atrybut="b 2">p aaaaaa</p>
+			<span>span bbbbbb</span>
+			<span>span bbbbbb</span>
+			<p>firstletter</p>
+			<span>firstline<br>secondline</span>
+			<hr>
+			<br><br>
+			<form action="form.php?format=b" method="post">
+				<table>
+					<tr>
+						<td>Imię:</td>
+						<td><input type="text" name="name"></td>
+					</tr>
+					<tr>
+						<td>Nazwisko:</td>
+						<td><input type="text" name="sname"></td>
+					</tr>
+					<tr>
+						<td>Adres email:</td>
+						<td><input type="email" name="email"></td>
+					</tr>
+					<tr>
+						<td>Płeć:</td>
+						<td>
+							<select name="sex">
+								<option value="m">Mężczyzna</option>
+								<option value="f">Kobieta</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input type="radio" name="age" value="20m" checked> Wiek < 20<br>
+							<input type="radio" name="age" value="20p"> Wiek > 20
+						</td>
+					</tr>
+					<tr>
+						<td>Opisz sie:</td>
+						<td>
+							<textarea name="desc"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Wyślij"></td>
+					</tr>
+				</table>
+				
+			</form>
+		</div>
+		<div id="footer">
+			<span>2017 Bartłomiej Pyk <br> Michał Rusinek</span>
+		</div>
+		
+		<div id="pos">
+		Element w prawym dolnym rogu
+		</div>
+	</body>
+</html>
